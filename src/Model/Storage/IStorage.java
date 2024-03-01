@@ -1,5 +1,6 @@
 package Model.Storage;
 
+import Model.Storage.ObjectDescription.baseMetaData;
 import Model.Storage.StorageObject.StudyGroup;
 
 import java.util.LinkedList;
@@ -11,4 +12,5 @@ public interface IStorage {
     public StudyGroup getElement(int id);
     public LinkedList<StudyGroup> getAllElements();
     public int clear();
+    public baseMetaData getmData();
 }
