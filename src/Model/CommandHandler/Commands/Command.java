@@ -1,5 +1,5 @@
 package Model.CommandHandler.Commands;
 
 public interface Command{
-    String execute();
+    public Pair<Integer, String> execute();
 }

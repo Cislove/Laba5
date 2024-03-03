@@ -4,6 +4,9 @@ import java.util.ArrayList;
 
 public class CommandsList {
     private ArrayList<Pair<String, String>> list;
+    public CommandsList(){
+        list = new ArrayList<>();
+    }
 
     public ArrayList<Pair<String, String>> getList() {
         return list;

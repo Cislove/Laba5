@@ -1,6 +1,7 @@
 package Model.Storage.ObjectDescription;
 
 
+import java.util.Date;
 import java.util.LinkedList;
 
 public class baseMetaData {
@@ -9,6 +10,7 @@ public class baseMetaData {
     public int size;
     public baseMetaData(String typeCollection){
         this.typeCollection = typeCollection;
+        initDate = new Date();
         size = 0;
     }
     public void updMetaData(LinkedList<?> coll){

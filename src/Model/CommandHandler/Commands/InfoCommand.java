@@ -5,12 +5,15 @@ import Model.Storage.ObjectDescription.baseMetaData;
 
 public class InfoCommand implements Command{
     IStorage storage;
-    public String execute(){
+    public InfoCommand(IStorage storage){
+        this.storage = storage;
+    }
+    public Pair<Integer, String> execute(){
         baseMetaData data = storage.getmData();
         String s = "Информация о коллекции:" + "\n";
         s += "Дата инициализации - " + data.initDate + "\n";
         s += "Тип коллекции - " + data.typeCollection + "\n";
         s += "Размер коллекции - " + data.size;
-        return s;
+        return new Pair<>(0, s);
     }
 }

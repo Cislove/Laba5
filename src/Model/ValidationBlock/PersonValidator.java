@@ -4,7 +4,7 @@ import Model.Storage.StorageObject.Person;
 import java.time.ZonedDateTime;
 
 public class PersonValidator {
-    public static void getRequest(Person inst) throws ValidateException{
+    public static void getResponse(Person inst) throws ValidateException{
         nameValidation(inst.getName());
         birthdayValidation(inst.getBirthday());
         heightValidation(inst.getHeight());

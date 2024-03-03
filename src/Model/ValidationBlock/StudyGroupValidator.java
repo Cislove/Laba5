@@ -1,6 +1,5 @@
 package Model.ValidationBlock;
 
-import Model.Storage.StorageObject.Coordinates;
 import Model.Storage.StorageObject.StudyGroup;
 
 public class StudyGroupValidator {
@@ -8,7 +7,7 @@ public class StudyGroupValidator {
         nameValidation(inst.getName());
         CoordinatesValidator.getRequest(inst.getCoordinates());
         studentsCountValidation(inst.getStudentsCount());
-        PersonValidator.getRequest(inst.getGroupAdmin());
+        PersonValidator.getResponse(inst.getGroupAdmin());
     }
     private static void nameValidation(String name) throws ValidateException{
         if(name == null || name.isEmpty()){

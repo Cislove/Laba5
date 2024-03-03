@@ -39,7 +39,7 @@ public class Storage implements IStorage {
         collection.clear();
         return 0;
     }
-    public baseMetaData getmDATA(){
+    public baseMetaData getmData(){
         mDATA.updMetaData(collection);
         return mDATA;
     }
