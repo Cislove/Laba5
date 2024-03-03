@@ -11,6 +11,7 @@ public class Main {
         EntryBlock model = new EntryBlock();
         System.out.println(model.execute("info"));
         System.out.println(model.execute("help"));
+        System.out.println(model.execute("show"));
         /*
         CommandsList list = new CommandsList();
         list.register("help", "вывести справку по доступным командам");

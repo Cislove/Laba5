@@ -10,6 +10,7 @@ public class Storage implements IStorage {
     public Storage(){
         collection = new LinkedList<>();
         mDATA = new baseMetaData("LinkedList");
+        collection.add(new StudyGroup());
     }
 
     public LinkedList<StudyGroup> getCollection() {
