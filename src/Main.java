@@ -1,3 +1,4 @@
+import Controller.Executor;
 import Model.CommandHandler.Commands.Command;
 import Model.CommandHandler.Commands.CommandsList;
 import Model.CommandHandler.Commands.HelpCommand;
@@ -8,6 +9,9 @@ import Model.Storage.Storage;
 
 public class Main {
     public static void main(String[] args) {
+        Executor ex = new Executor();
+        ex.execute();
+        /*
         EntryBlock model = new EntryBlock();
         System.out.println(model.execute("info"));
         System.out.println(model.execute("help"));

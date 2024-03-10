@@ -6,7 +6,12 @@ import Model.Storage.Storage;
 
 public class EntryBlock implements IModel{
     Switcher commandHandler;
-    public EntryBlock(){
+    public String execute(String request){
+        String response;
+        response = commandHandler.execute(request);
+        return response;
+    }
+    public String start(){
         Storage st = new Storage();
         CommandsList list = new CommandsList();
         list.register("help", "вывести справку по доступным командам");
@@ -19,10 +24,6 @@ public class EntryBlock implements IModel{
         commandHandler.CommandsRegister("info", infoCommand);
         commandHandler.CommandsRegister("help", helpCommand);
         commandHandler.CommandsRegister("show", showCommand);
-    }
-    public String execute(String request){
-        String response;
-        response = commandHandler.execute(request);
-        return response;
+        return "Добро пожаловать в программу!!!";
     }
 }
