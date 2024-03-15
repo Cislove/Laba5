@@ -14,7 +14,7 @@ public class Executor implements IExecutor{
             request = view.update(response);
             response = model.execute(request);
         } while (response != null);
-        System.out.println("Программа завершила работу");
+        System.out.print("Программа завершила работу");
         System.exit(0);
     }
 }

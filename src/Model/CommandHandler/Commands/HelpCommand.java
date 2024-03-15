@@ -9,7 +9,7 @@ public class HelpCommand implements Command{
     public Pair<Integer, String> execute() {
         String s = "";
         for(Pair<String, String> i: list.getList()){
-            s += (i.getLeft() + ": " + i.getRight() + "\n");
+            s += (i.getLeft() + ": " + i.getRight() + "!\n");
         }
         return new Pair<>(0, s);
     }

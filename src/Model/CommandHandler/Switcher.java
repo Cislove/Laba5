@@ -47,7 +47,7 @@ public class Switcher {
                     return executor(commandMap.get(command));
                 }
                 else{
-                    return "К сожалению такой команды не существует(";
+                    return "К сожалению такой команды не существует(\n";
                 }
             }
         }

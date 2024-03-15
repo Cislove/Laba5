@@ -2,16 +2,15 @@ package Model.ValidationBlock;
 
 import Model.Storage.StorageObject.FormOfEducation;
 import Model.Storage.StorageObject.Semester;
-import Model.Storage.StorageObject.StudyGroup;
 
-public class StudyGroupValidator {
-    public static String nameValidation(String name) throws ValidateException{
+public class Validator {
+    public String nameValidation(String name) throws ValidateException{
         if(name.isEmpty()){
             throw new ValidateException("У группы обязательно должно быть имя!\n");
         }
         return name;
     }
-    public static Long studentsCountValidation(String studentsCount) throws ValidateException{
+    public Long studentsCountValidation(String studentsCount) throws ValidateException{
         try{
             Long ans = Long.parseLong(studentsCount);
             if(ans <= 0L){
@@ -23,7 +22,7 @@ public class StudyGroupValidator {
             throw new ValidateException("Количество людей в группе должно быть числом!");
         }
     }
-    public static FormOfEducation formOfEducationValidation(String formOfEducation) throws ValidateException{
+    public FormOfEducation formOfEducationValidation(String formOfEducation) throws ValidateException{
         try {
             return FormOfEducation.valueOf(formOfEducation);
         }
@@ -31,7 +30,7 @@ public class StudyGroupValidator {
             throw new ValidateException("Тип обучения группы должен быть обязательно одним из предложенных!");
         }
     }
-    public static Semester semesterEnumValidation(String semesterEnum) throws ValidateException{
+    public Semester semesterEnumValidation(String semesterEnum) throws ValidateException{
         try {
             return Semester.valueOf(semesterEnum);
         }

@@ -1,11 +1,10 @@
 package Model.Storage.StorageObject;
 
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
 
 public class Person {
     private String name = "Коля"; //Поле не может быть null, Строка не может быть пустой
-    private java.time.ZonedDateTime birthday = ZonedDateTime.now();; //Поле не может быть null
+    private java.time.LocalDate birthday = LocalDate.now(); //Поле не может быть null
     private Double height = 180.; //Поле не может быть null, Значение поля должно быть больше 0
     private Double weight = 80.; //Пое не может быть null, Значение поля должно быть больше 0
     private String passportID = "123456789"; //Длина строки должна быть не меньше 9, Значение этого поля должно быть уникальным, Длина строки не должна быть больше 31, Поле не может быть null
@@ -18,11 +17,11 @@ public class Person {
         this.name = name;
     }
 
-    public ZonedDateTime getBirthday() {
+    public LocalDate getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(ZonedDateTime birthday) {
+    public void setBirthday(LocalDate birthday) {
         this.birthday = birthday;
     }
 
@@ -53,11 +52,11 @@ public class Person {
     @Override
     public String toString() {
         String response = "\n";
-        response += ("      " + "Имя " + name + "\n");
-        response += ("      " + "День рождения " + birthday + "\n");
-        response += ("      " + "Рост " + height + "\n");
-        response += ("      " + "Вес " + weight + "\n");
-        response += ("      " + "ID паспорта " + passportID);
+        response += ("\t\t" + "Имя " + name + "\n");
+        response += ("\t\t" + "День рождения " + birthday + "\n");
+        response += ("\t\t" + "Рост " + height + "\n");
+        response += ("\t\t" + "Вес " + weight + "\n");
+        response += ("\t\t" + "ID паспорта " + passportID);
         return response;
     }
 }

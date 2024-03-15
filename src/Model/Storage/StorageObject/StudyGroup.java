@@ -1,15 +1,21 @@
 package Model.Storage.StorageObject;
 
-import java.util.Date;
+import java.time.ZonedDateTime;
 
 public class StudyGroup {
-    private Integer id = 0; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    @closedField
+    private Integer id = -1; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name = "test"; //Поле не может быть null, Строка не может быть пустой
+    @fieldWithCompoundInput
     private Coordinates coordinates = new Coordinates(); //Поле не может быть null
-    private java.util.Date creationDate = new Date(); //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    @closedField
+    private java.time.ZonedDateTime creationDate = ZonedDateTime.now(); //Поле не может быть null, Значение этого поля должно генерироваться автоматически
     private Long studentsCount = 10L; //Значение поля должно быть больше 0, поле может быть null
+    @enumType
     private FormOfEducation formOfEducation = FormOfEducation.FULL_TIME_EDUCATION; //Поле может быть null
+    @enumType
     private Semester semesterEnum = Semester.FIFTH; //Поле не может быть null
+    @fieldWithCompoundInput
     private Person groupAdmin = new Person(); //Поле может быть null
     public int getId() {
         return id;
@@ -35,11 +41,11 @@ public class StudyGroup {
         this.coordinates = coordinates;
     }
 
-    public Date getCreationDate() {
+    public ZonedDateTime getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(Date creationDate) {
+    public void setCreationDate(ZonedDateTime creationDate) {
         this.creationDate = creationDate;
     }
 
