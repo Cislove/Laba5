@@ -29,7 +29,9 @@ public class EntryBlock implements IModel{
         Command removeFirstCommand = new removeFirstCommand(st);
         Command headCommand = new HeadCommand(st);
         Command exitCommand = new ExitCommand();
+        System.out.println("1");
         ArgumentCommand addCommand = new AddCommand(st);
+        System.out.println("2");
         commandHandler = new Switcher();
         commandHandler.CommandsRegister("info", infoCommand);
         commandHandler.CommandsRegister("help", helpCommand);

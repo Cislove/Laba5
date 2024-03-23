@@ -1,5 +1,8 @@
 package Model.Storage.StorageObject;
 
+import Model.Storage.StorageObject.ValidationBlock.ValidateException;
+
+import java.time.LocalDate;
 import java.time.ZonedDateTime;
 
 public class StudyGroup {
@@ -9,13 +12,16 @@ public class StudyGroup {
     @fieldWithCompoundInput
     private Coordinates coordinates = new Coordinates(); //Поле не может быть null
     @closedField
-    private java.time.ZonedDateTime creationDate = ZonedDateTime.now(); //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private Long studentsCount = 10L; //Значение поля должно быть больше 0, поле может быть null
+    private java.time.LocalDate creationDate = LocalDate.now(); //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    private Long studentsCount = 10L; //Значение поля должно быть больше 0
     @enumType
+    @mayBeNull
     private FormOfEducation formOfEducation = FormOfEducation.FULL_TIME_EDUCATION; //Поле может быть null
     @enumType
-    private Semester semesterEnum = Semester.FIFTH; //Поле не может быть null
+    @mayBeNull
+    private Semester semesterEnum = Semester.FIFTH; //Поле может быть null
     @fieldWithCompoundInput
+    @mayBeNull
     private Person groupAdmin = new Person(); //Поле может быть null
     public int getId() {
         return id;
@@ -41,11 +47,11 @@ public class StudyGroup {
         this.coordinates = coordinates;
     }
 
-    public ZonedDateTime getCreationDate() {
+    public LocalDate getCreationDate() {
         return creationDate;
     }
 
-    public void setCreationDate(ZonedDateTime creationDate) {
+    public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
 
@@ -53,7 +59,7 @@ public class StudyGroup {
         return studentsCount;
     }
 
-    public void setStudentsCount(long studentsCount) {
+    public void setStudentsCount(Long studentsCount) {
         this.studentsCount = studentsCount;
     }
 
@@ -89,9 +95,18 @@ public class StudyGroup {
         response += ("  " + "Координаты: " + coordinates.toString() + "\n");
         response += ("  " + "Дата создания " + creationDate + "\n");
         response += ("  " + "Количество студентов " + studentsCount + "\n");
-        response += ("  " + "Форма обучения " + semesterEnum.toString() + "\n");
-        response += ("  " + "Тип семестра " + formOfEducation.toString() + "\n");
-        response += ("  " + "Староста: " +  groupAdmin.toString());
+        if(formOfEducation != null)
+            response += ("  " + "Форма обучения " + formOfEducation.toString() + "\n");
+        if(semesterEnum != null)
+            response += ("  " + "Тип семестра " + semesterEnum.toString() + "\n");
+        if(groupAdmin != null)
+            response += ("  " + "Староста: " +  groupAdmin.toString());
         return response;
+    }
+    public String parseName(String name) throws ValidateException {
+        if(name.isEmpty()){
+            throw new ValidateException("У группы обязательно должно быть имя!\n");
+        }
+        return name;
     }
 }

@@ -1,8 +1,7 @@
-package Model.ValidationBlock;
+package Model.Storage.StorageObject.ValidationBlock;
 
 import Model.Storage.StorageObject.FormOfEducation;
 import Model.Storage.StorageObject.Semester;
-import Model.Storage.StorageObject.StudyGroup;
 
 public class StudyGroupValidator {
     public static String nameValidation(String name) throws ValidateException{

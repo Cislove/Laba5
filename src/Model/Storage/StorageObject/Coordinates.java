@@ -5,19 +5,19 @@ public class Coordinates {
     private Float xCord = 10F; //Значение поля должно быть больше -407, Поле не может быть null
     private Float yCord = 20F; //Поле не может быть null
 
-    public Float getxCord() {
+    public Float getXCord() {
         return xCord;
     }
 
-    public void setxCord(Float xCord) {
+    public void setXCord(Float xCord) {
         this.xCord = xCord;
     }
 
-    public Float getyCord(){
+    public Float getYCord(){
         return yCord;
     }
 
-    public void setyCord(Float yCord) {
+    public void setYCord(Float yCord) {
         this.yCord = yCord;
     }
     @Override

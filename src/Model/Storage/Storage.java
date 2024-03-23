@@ -12,7 +12,7 @@ public class Storage implements IStorage {
     public Storage(){
         collection = new LinkedList<>();
         mDATA = new baseMetaData("LinkedList");
-        collection.add(new StudyGroup());
+        //collection.add(new StudyGroup());
         passportIdStorage = new HashMap<>();
     }
 
@@ -21,7 +21,9 @@ public class Storage implements IStorage {
     }
     public int addElement(StudyGroup el){
         collection.add(el);
-        passportIdStorage.put(el.getGroupAdmin().getPassportID(), true);
+        if(el.getGroupAdmin() != null) {
+            passportIdStorage.put(el.getGroupAdmin().getPassportID(), true);
+        }
         return 0;
     }
     public int delElement(int id){

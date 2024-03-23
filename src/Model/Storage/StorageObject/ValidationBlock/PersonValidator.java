@@ -1,11 +1,8 @@
-package Model.ValidationBlock;
+package Model.Storage.StorageObject.ValidationBlock;
 
 import Model.Storage.Storage;
-import Model.Storage.StorageObject.Person;
 
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
-import java.util.Date;
 import java.util.regex.Pattern;
 
 public class PersonValidator {

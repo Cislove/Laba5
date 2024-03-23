@@ -1,7 +1,4 @@
-package Model.ValidationBlock;
-
-import Model.Storage.StorageObject.Coordinates;
-import Model.Storage.StorageObject.StudyGroup;
+package Model.Storage.StorageObject.ValidationBlock;
 
 public class CoordinatesValidator {
     public static Float XValidation(String XCord) throws ValidateException{
