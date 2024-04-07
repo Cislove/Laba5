@@ -7,16 +7,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 
-public class Writter implements Writeable {
-    private String pathToDirectory;
+public class Writter{
     public Writter(){
-        pathToDirectory = "C:/Users/vim15/IdeaProjects/ProgaLab5/ProgramFile";
     }
-    public Writter(String path){
-        pathToDirectory = path;
-    }
-    public int writeToFile(String name, String file){
-        try (FileWriter fw = new FileWriter(pathToDirectory + "/" + name)) {
+    public int writeToFile(String pathToFile, String file){
+        try (FileWriter fw = new FileWriter(pathToFile)) {
             fw.write(file);
         }
         catch (IOException e) {
@@ -24,15 +19,15 @@ public class Writter implements Writeable {
         }
         return 0;
     }
-    public int writeToFile(String file){
-        return writeToFile("Main", file);
-    }
+//    public int writeToFile(String file){
+//        return writeToFile("Main", file);
+//    }
 
-    public String getPathToDirectory() {
-        return pathToDirectory;
-    }
-
-    public void setPathToDirectory(String pathToDirectory) {
-        this.pathToDirectory = pathToDirectory;
-    }
+//    public String getPathToDirectory() {
+//        return pathToDirectory;
+//    }
+//
+//    public void setPathToDirectory(String pathToDirectory) {
+//        this.pathToDirectory = pathToDirectory;
+//    }
 }

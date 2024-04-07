@@ -1,33 +1,50 @@
 package Model.Storage.StorageObject;
 
-import Model.Storage.StorageObject.ValidationBlock.ValidateException;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlText;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
 
-public class StudyGroup {
+public class StudyGroup implements Comparable<StudyGroup>{
     @closedField
-    private Integer id = -1; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    private String name = "test"; //Поле не может быть null, Строка не может быть пустой
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private String name; //Поле не может быть null, Строка не может быть пустой
     @fieldWithCompoundInput
-    private Coordinates coordinates = new Coordinates(); //Поле не может быть null
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private Coordinates coordinates; //Поле не может быть null
     @closedField
-    private java.time.LocalDate creationDate = LocalDate.now(); //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    private Long studentsCount = 10L; //Значение поля должно быть больше 0
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    //@JsonInclude(JsonInclude.Include.NON_EMPTY)
+    private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private Long studentsCount; //Значение поля должно быть больше 0
     @enumType
     @mayBeNull
-    private FormOfEducation formOfEducation = FormOfEducation.FULL_TIME_EDUCATION; //Поле может быть null
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private FormOfEducation formOfEducation; //Поле может быть null
     @enumType
     @mayBeNull
-    private Semester semesterEnum = Semester.FIFTH; //Поле может быть null
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private Semester semesterEnum; //Поле может быть null
     @fieldWithCompoundInput
     @mayBeNull
-    private Person groupAdmin = new Person(); //Поле может быть null
-    public int getId() {
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private Person groupAdmin; //Поле может быть null
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -54,8 +71,11 @@ public class StudyGroup {
     public void setCreationDate(LocalDate creationDate) {
         this.creationDate = creationDate;
     }
+    public void setCreationDate(){
+        this.creationDate = LocalDate.now();
+    }
 
-    public long getStudentsCount() {
+    public Long getStudentsCount() {
         return studentsCount;
     }
 
@@ -96,17 +116,22 @@ public class StudyGroup {
         response += ("  " + "Дата создания " + creationDate + "\n");
         response += ("  " + "Количество студентов " + studentsCount + "\n");
         if(formOfEducation != null)
-            response += ("  " + "Форма обучения " + formOfEducation.toString() + "\n");
+            response += ("  " + "Форма обучения " + formOfEducation + "\n");
         if(semesterEnum != null)
-            response += ("  " + "Тип семестра " + semesterEnum.toString() + "\n");
+            response += ("  " + "Тип семестра " + semesterEnum + "\n");
         if(groupAdmin != null)
-            response += ("  " + "Староста: " +  groupAdmin.toString());
+            response += ("  " + "Староста: " + groupAdmin + "\n");
         return response;
     }
-    public String parseName(String name) throws ValidateException {
-        if(name.isEmpty()){
-            throw new ValidateException("У группы обязательно должно быть имя!\n");
+    @Override
+    public int compareTo(StudyGroup o) {
+        int field;
+        if((field = name.compareTo(o.getName())) != 0){
+            return field;
         }
-        return name;
+        if((field = studentsCount.compareTo(o.getStudentsCount())) != 0){
+            return field;
+        }
+        return 0;
     }
 }

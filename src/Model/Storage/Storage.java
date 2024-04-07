@@ -27,13 +27,17 @@ public class Storage implements IStorage {
         return 0;
     }
     public int delElement(int id){
+        if(collection.get(id).getGroupAdmin() != null) {
+            passportIdStorage.replace(collection.get(id).getGroupAdmin().getPassportID(), true);
+        }
         collection.remove(id);
-        passportIdStorage.remove(collection.get(id).getGroupAdmin().getPassportID());
         return 0;
     }
     public int updElement(int id, StudyGroup el){
         collection.set(id, el);
-        passportIdStorage.put(el.getGroupAdmin().getPassportID(), true);
+        if(el.getGroupAdmin() != null) {
+            passportIdStorage.replace(el.getGroupAdmin().getPassportID(), true);
+        }
         return 0;
     }
     public StudyGroup getElement(int id){
@@ -51,6 +55,12 @@ public class Storage implements IStorage {
     public baseMetaData getmData(){
         mDATA.updMetaData(collection);
         return mDATA;
+    }
+    public void setmData(baseMetaData mDATA){
+        this.mDATA = mDATA;
+    }
+    public void setCollection(LinkedList<StudyGroup> list){
+        collection = list;
     }
     private void delPassportId(String passportId){
         passportIdStorage.remove(passportId);

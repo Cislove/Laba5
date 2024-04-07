@@ -1,5 +1,6 @@
 package View;
 
+import java.io.FileWriter;
 import java.util.Scanner;
 
 public class Responder implements sendable{

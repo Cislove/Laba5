@@ -13,9 +13,9 @@ public class ShowCommand implements Command{
     @Override
     public Pair<Integer, String> execute() {
         String response = "";
-        LinkedList<StudyGroup> collection = storage.getAllElements();
-        for(StudyGroup coll: collection){
-            response += (coll.toString() + "\n");
+        //LinkedList<StudyGroup> collection = storage.getAllElements();
+        for(StudyGroup coll: storage.getAllElements()){
+            response += (coll.toString());
         }
         return new Pair<>(0, response);
     }

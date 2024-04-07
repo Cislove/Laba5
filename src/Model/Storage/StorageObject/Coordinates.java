@@ -1,9 +1,13 @@
 
 package Model.Storage.StorageObject;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 public class Coordinates {
-    private Float xCord = 10F; //Значение поля должно быть больше -407, Поле не может быть null
-    private Float yCord = 20F; //Поле не может быть null
+    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    private Float xCord; //Значение поля должно быть больше -407, Поле не может быть null
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Float yCord; //Поле не может быть null
 
     public Float getXCord() {
         return xCord;
