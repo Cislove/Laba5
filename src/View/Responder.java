@@ -1,5 +1,6 @@
 package View;
 
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 /**
@@ -14,6 +15,14 @@ public class Responder implements sendable{
      */
     @Override
     public String consoleIn() {
-        return scn.nextLine();
+        String str = "";
+        try {
+            str = scn.nextLine();
+        }
+        catch (NoSuchElementException e){
+            System.out.println("Завершение работы");
+            System.exit(0);
+        }
+        return str;
     }
 }

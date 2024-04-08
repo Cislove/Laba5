@@ -3,6 +3,7 @@ package Model.CommandHandler.Commands;
 import Model.CommandHandler.Switcher;
 import Model.IODriver.IOHandler;
 
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -31,8 +32,14 @@ public class ExecuteScriptCommand implements ArgumentCommand{
             return new Pair<>(3, "!!!Ошибка выполнения скрипта: Скрипт остановлен на моменте вызова бесконечной рекурсии\n");
         }
         runningScripts.add(arguments);
-        String[] script = ioHandler.readFile(arguments).split("\n");
-        StringBuilder response = new StringBuilder();
+        String[] script;
+        try {
+            script = ioHandler.readFile(arguments).split("\n");
+        }
+        catch (IOException e){
+            return new Pair<>(0, e.getMessage());
+        }
+        StringBuilder response = new StringBuilder().append("Запуск скрипта ").append(arguments).append("\n");
         if(runningScripts.size() == 1 && flag){
             flag = false;
             response.insert(0, "!!!Внимание в скрипте присутствует рекурсивный вызов других скриптов\n");
@@ -51,7 +58,8 @@ public class ExecuteScriptCommand implements ArgumentCommand{
                 return new Pair<>(3, response.toString());
             }
         }
-        response.append("\nСкрипт выполнен\n");
+        runningScripts.remove(arguments);
+        response.append("\nСкрипт ").append(arguments).append(" выполнен\n");
         return new Pair<>(0, response.toString());
     }
 }

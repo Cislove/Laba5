@@ -60,7 +60,7 @@ public class Validator {
     public boolean CoordinatesXCordValidation(Float xCord) throws ValidateException{
         nullChecker(xCord);
         if(xCord <= -407f){
-            throw new ValidateException("Значение координаты X должно быть больше -407\n");
+            throw new ValidateException("Значение координаты X должно быть больше -407 и меньше 3.4e+38\n");
         }
         return true;
     }
@@ -97,7 +97,7 @@ public class Validator {
     public boolean PersonHeightValidation(Double height) throws ValidateException{
         nullChecker(height);
         if(height <= 0){
-            throw new ValidateException("значение роста должно быть большие нуля!\n");
+            throw new ValidateException("Значение роста должно быть целым числом в диапазоне (0, 1.7e+308), с не более, чем 16 цифрами после запятой!\n");
         }
         return true;
     }
@@ -108,7 +108,7 @@ public class Validator {
     public boolean PersonWeightValidation(Double weight) throws ValidateException{
         nullChecker(weight);
         if(weight <= 0){
-            throw new ValidateException("значение веса должно быть больше нуля!\n");
+            throw new ValidateException("Значение веса должно быть целым числом в диапазоне (0, 1.7e+308), с не более, чем 16 цифрами после запятой!\n");
         }
         return true;
     }

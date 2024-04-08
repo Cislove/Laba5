@@ -48,20 +48,22 @@ public class IOHandler{
     public XMLCollection readListFromFile(String name) throws IOException {
         String xml = reader.ReadFromFile(name);
         if(xml == null){
-            System.out.println("Ошибка чтения из файла\n");
+            throw new IOException("Ошибка чтения из файла, проверьте путь до него и правда доступа\n");
         }
-        XMLCollection collection = parser.parser(xml);
-        if(collection == null){
-            throw new IOException("Файл не соответствует требуемому формату\n");
+        else {
+            XMLCollection collection = parser.parser(xml);
+            if (collection == null) {
+                throw new IOException("Файл не соответствует требуемому формату\n");
+            }
+            return collection;
         }
-        return collection;
     }
 
-    public String readFile(String name) {
+    public String readFile(String name) throws IOException {
         String response;
         response = reader.ReadFromFile(name);
         if(response == null){
-            response = "Ошибка чтения из файла\n";
+            throw new IOException("Ошибка чтения из файла, проверьте путь до него и правда доступа\n");
         }
         return response;
     }

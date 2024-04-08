@@ -38,7 +38,7 @@ public class EntryBlock implements IModel{
         int idEl = 1;
         try {
             ClosedFieldValidator validator = new ClosedFieldValidator(st, idHandler);
-            XMLCollection collection = ioHandler.readListFromFile("ProgramFile/Main.xml");
+            XMLCollection collection = ioHandler.readListFromFile("Main.xml");
             for(StudyGroup el: collection.getCollection()){
                 validator.StudyGroupIDValidation(el.getId());
                 validator.StudyGroupNameValidation(el.getName());
@@ -62,7 +62,7 @@ public class EntryBlock implements IModel{
             return "Ошибка загрузки данных из файла\n" + idEl + " элемент: " + e.getMessage();
         }
         catch (IOException e){
-            return "Ошибка загрузки данных из файла\n" + e.getMessage();
+            return "Ошибка загрузки данных из файла: " + e.getMessage();
         }
         return "Данные из файла успешно загружены\n";
     }

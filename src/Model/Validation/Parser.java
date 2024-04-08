@@ -39,6 +39,9 @@ public class Parser {
      * @return formOfEducation в установленном формате
      */
     public FormOfEducation StudyGroupFormOfEducationParser(String formOfEducation) throws ParseException{
+        if(formOfEducation.isEmpty()){
+            return null;
+        }
         try {
             return FormOfEducation.valueOf(formOfEducation);
         }
@@ -51,6 +54,9 @@ public class Parser {
      * @return SemesterEnum в установленном формате
      */
     public Semester StudyGroupSemesterEnumParser(String semesterEnum) throws ParseException{
+        if(semesterEnum.isEmpty()){
+            return null;
+        }
         try {
             return Semester.valueOf(semesterEnum);
         }
@@ -64,7 +70,12 @@ public class Parser {
      */
     public Float CoordinatesXCordParser(String XCord) throws ParseException{
         try {
-            return Float.parseFloat(XCord);
+            Float res;
+            res = Float.parseFloat(XCord);
+            if(res.equals(Float.POSITIVE_INFINITY) || res.equals(Float.NEGATIVE_INFINITY)){
+                throw new ParseException("Значение координаты X должно лежать в диапазоне (-407; 3.4e+38), с не более, чем 8 цифрами после запятой\n");
+            }
+            return res;
         }
         catch (NumberFormatException e){
             throw new ParseException("Значение координаты X должно быть числом\n");
@@ -76,7 +87,12 @@ public class Parser {
      */
     public Float CoordinatesYCordParser(String YCord) throws ParseException{
         try {
-            return Float.parseFloat(YCord);
+            Float res;
+            res = Float.parseFloat(YCord);
+            if(res.equals(Float.POSITIVE_INFINITY) || res.equals(Float.NEGATIVE_INFINITY)){
+                throw new ParseException("Значение координаты Y должно лежать в диапазоне (-3.4e+38; 3.4e+38), с не более, чем 8 цифрами после запятой\n");
+            }
+            return res;
         }
         catch (NumberFormatException e){
             throw new ParseException("Значение координаты Y должно быть числом\n");
@@ -115,10 +131,15 @@ public class Parser {
      */
     public Double PersonHeightParser(String height) throws ParseException{
         try {
+            Double res;
+            res = Double.parseDouble(height);
+            if(res.equals(Double.POSITIVE_INFINITY) || res.equals(Double.NEGATIVE_INFINITY)){
+                throw new ParseException("Значение роста должно быть целым числом в диапазоне (0, 1.7e+308), с не более, чем 16 цифрами после запятой\n");
+            }
             return Double.parseDouble(height);
         }
         catch (NumberFormatException e){
-            throw new ParseException("Значение роста должно быть числом!\n");
+            throw new ParseException("Значение роста должно быть целым числом!\n");
         }
     }
     /**
@@ -127,6 +148,11 @@ public class Parser {
      */
     public Double PersonWeightParser(String weight) throws ParseException{
         try {
+            Double res;
+            res = Double.parseDouble(weight);
+            if(res.equals(Double.POSITIVE_INFINITY) || res.equals(Double.NEGATIVE_INFINITY)){
+                throw new ParseException("Значение веса должно быть целым числом в диапазоне (0, 1.7e+308), с не более, чем 16 цифрами после запятой\n");
+            }
             return Double.parseDouble(weight);
         }
         catch (NumberFormatException e){

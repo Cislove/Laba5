@@ -15,7 +15,7 @@ public class SaveCommand implements Command{
     public SaveCommand(Storage storage, IOHandler ioHandler){
         this.storage = storage;
         this.ioHandler = ioHandler;
-        nameFile = "ProgramFile\\Main.xml";
+        nameFile = "Main.xml";
     }
     @Override
     public Pair<Integer, String> execute() {

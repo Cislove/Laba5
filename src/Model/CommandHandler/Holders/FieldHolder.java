@@ -91,14 +91,14 @@ public class FieldHolder {
             else {
                 response = "Введите поле " + fields.peek().getName();
                 if (fields.peek().getAnnotation(enumType.class) != null) {
-                    if(fields.peek().getAnnotation(mayBeNull.class) != null && !nullFieldFlag){
-                        nullFieldFlag = true;
-                        response = "Вы хотите ввести поле " + fields.peek().getName() + "?(введите yes/no)";
-                    }
-                    else{
+//                    if(fields.peek().getAnnotation(mayBeNull.class) != null && !nullFieldFlag){
+//                        nullFieldFlag = true;
+//                        response = "Вы хотите ввести поле " + fields.peek().getName() + "?(введите yes/no)";
+//                    }
+//                    else{
                         nullFieldFlag = false;
                         response += ("(" + Arrays.toString(fields.peek().getType().getEnumConstants()) + ")");
-                    }
+                    //}
                 }
             }
             lastFields.push(fields.pop());

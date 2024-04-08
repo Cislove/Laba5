@@ -17,7 +17,7 @@ public class Reader{
                 file.append(line).append("\n");
             }
         }
-        catch (IOException e){
+        catch (IOException | NullPointerException e){
             return null;
         }
         return file.toString();
