@@ -2,6 +2,10 @@ package Model.CommandHandler.Commands;
 
 import Model.Storage.IStorage;
 
+/**
+ * Класс реализации команды "head"
+ * @author Ильнар Рахимов
+ */
 public class HeadCommand implements Command{
     IStorage storage;
     public HeadCommand(IStorage storage){

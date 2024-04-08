@@ -8,7 +8,10 @@ import Model.Validation.IDHandler;
 import Model.Validation.Parser;
 import Model.Validation.Validator;
 
-
+/**
+ * Класс реализации команды "add"
+ * @author Ильнар Рахимов
+ */
 public class AddCommand implements ArgumentCommand{
     private final IStorage storage;
     private FieldHolder fieldHolder;

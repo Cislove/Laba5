@@ -6,6 +6,10 @@ import Model.IODriver.IOHandler;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * Класс реализации команды "execute_script"
+ * @author Ильнар Рахимов
+ */
 public class ExecuteScriptCommand implements ArgumentCommand{
     private final IOHandler ioHandler;
     private final Switcher switcher;

@@ -13,6 +13,10 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Stack;
 
+/**
+ * Класс заполнитель открытых полей {@link StudyGroup} и других вложенных классов. Реализует заполнение этих полей данными пользователя
+ * @author Ильнар Рахимов
+ */
 public class FieldHolder {
     private StudyGroup cash;
     private Stack <Object> stackCash;

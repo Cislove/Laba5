@@ -5,6 +5,10 @@ import Model.Storage.ObjectDescription.baseMetaData;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+/**
+ * Класс описывающий хранилище данных о группах {@link Model.Storage.StorageObject.StudyGroup}
+ * @author Ильнар Рахимов
+ */
 public class Storage implements IStorage {
     private LinkedList<StudyGroup> collection;
     private baseMetaData mDATA;
@@ -14,7 +18,6 @@ public class Storage implements IStorage {
         mDATA = new baseMetaData("LinkedList");
         passportIdStorage = new HashMap<>();
     }
-
     public LinkedList<StudyGroup> getCollection() {
         return collection;
     }
@@ -65,6 +68,10 @@ public class Storage implements IStorage {
     private void addPassportId(String passportId){
         passportIdStorage.put(passportId, true);
     }
+    /**
+     * Проверка passportID на занятость
+     * @return true - занят, false - свободен
+     */
     public boolean checkPassportId(String passportId){
         return passportIdStorage.containsKey(passportId);
     }

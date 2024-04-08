@@ -1,5 +1,9 @@
 package Model.CommandHandler.Commands;
 
+/**
+ * Класс реализации команды "help"
+ * @author Ильнар Рахимов
+ */
 public class HelpCommand implements Command{
     CommandsList list;
     public HelpCommand(CommandsList list){

@@ -2,6 +2,11 @@ package Model.CommandHandler.Commands;
 
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
+
+/**
+ * Класс реализации команды "filter_contains_name"
+ * @author Ильнар Рахимов
+ */
 public class FilterContainsNameCommand implements ArgumentCommand{
     private final IStorage storage;
     public FilterContainsNameCommand(IStorage storage){

@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Класс для чтения файлов
+ * @author Ильнар Рахимов
+ */
 public class Reader{
     public String ReadFromFile(String pathToFile) {
         StringBuilder file = new StringBuilder();

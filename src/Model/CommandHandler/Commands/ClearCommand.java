@@ -2,6 +2,10 @@ package Model.CommandHandler.Commands;
 
 import Model.Storage.IStorage;
 
+/**
+ * Класс реализации команды "clear"
+ * @author Ильнар Рахимов
+ */
 public class ClearCommand implements Command{
     IStorage storage;
     public ClearCommand(IStorage storage){

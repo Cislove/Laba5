@@ -4,6 +4,10 @@ import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
 
 
+/**
+ * Класс реализации команды "show"
+ * @author Ильнар Рахимов
+ */
 public class ShowCommand implements Command{
     IStorage storage;
     public ShowCommand(IStorage storage){

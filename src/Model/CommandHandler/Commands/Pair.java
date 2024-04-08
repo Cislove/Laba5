@@ -1,5 +1,9 @@
 package Model.CommandHandler.Commands;
 
+/**
+ * Класс структура данных "Пара". Описывает ответ классов команд для {@link Model.CommandHandler.Switcher}
+ * @author Ильнар Рахимов
+ */
 public class Pair<T, U>{
     private T left;
     private U right;

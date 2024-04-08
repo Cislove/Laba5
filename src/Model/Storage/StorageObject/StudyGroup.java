@@ -9,6 +9,11 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import java.time.LocalDate;
 
+/**
+ * Класс описывающий студенческую группу
+ * @author Ильнар Рахимов
+ */
+
 public class StudyGroup implements Comparable<StudyGroup>{
     @closedField
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
@@ -98,6 +103,10 @@ public class StudyGroup implements Comparable<StudyGroup>{
         this.groupAdmin = groupAdmin;
     }
 
+    /**
+     * Функция получения описание объекта
+     * @return Возвращает текстовое описание характеристик объекта
+     */
     @Override
     public String toString() {
         String response = "Характеристики группы: " + "\n";
@@ -114,6 +123,12 @@ public class StudyGroup implements Comparable<StudyGroup>{
             response += ("  " + "Староста: " + groupAdmin + "\n");
         return response;
     }
+
+    /**
+     * Функция сравнения объектов
+     * @param o объект для сравнения
+     * @return стандартную характеристику сравнения объектов
+     */
     @Override
     public int compareTo(StudyGroup o) {
         int field;

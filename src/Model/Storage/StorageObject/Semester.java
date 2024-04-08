@@ -1,5 +1,9 @@
 package Model.Storage.StorageObject;
 
+/**
+ * Enum характеризующий тип семестра
+ * @author Ильнар Рахимов
+ */
 public enum Semester {
     THIRD("трехмесячный"),
     FIFTH("пятимесячный"),

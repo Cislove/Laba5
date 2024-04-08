@@ -8,6 +8,11 @@ import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 import java.time.LocalDate;
 
+/**
+ * Класс описывающий человека
+ * @author Ильнар Рахимов
+ */
+
 public class Person implements Comparable<Person>{
     private String name; //Поле не может быть null, Строка не может быть пустой
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
@@ -57,7 +62,10 @@ public class Person implements Comparable<Person>{
     public void setPassportID(String passportID) {
         this.passportID = passportID;
     }
-
+    /**
+     * Функция получения описание объекта
+     * @return Возвращает текстовое описание характеристик объекта
+     */
     @Override
     public String toString() {
         String response = "\n";
@@ -68,7 +76,11 @@ public class Person implements Comparable<Person>{
         response += ("\t\t" + "ID паспорта " + passportID);
         return response;
     }
-
+    /**
+     * Функция сравнения объектов
+     * @param o объект для сравнения
+     * @return стандартную характеристику сравнения объектов
+     */
     @Override
     public int compareTo(Person o) {
         int field;

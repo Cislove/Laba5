@@ -2,6 +2,10 @@ package Model.CommandHandler.Commands;
 
 import java.util.ArrayList;
 
+/**
+ * Класс список всех команд и их описаний. Нужен для работы {@link HelpCommand}
+ * @author Ильнар Рахимов
+ */
 public class CommandsList {
     private final ArrayList<Pair<String, String>> list;
     public CommandsList(){

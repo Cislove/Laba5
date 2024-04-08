@@ -10,21 +10,34 @@ import Model.Storage.Storage;
 import Model.Storage.StorageObject.StudyGroup;
 import Model.Validation.IDHandler;
 import Model.Validation.ValidateException;
-import Model.Validation.XMLValidation;
+import Model.Validation.ClosedFieldValidator;
 
 import java.io.IOException;
 
+/**
+ * Класс описывающий связующий блок между моделью и контроллер.
+ * Отвечает за передачу запросов на {@link Switcher} и запуск модели
+ * @author Ильнар Рахимов
+ */
 public class EntryBlock implements IModel{
     Switcher commandHandler;
+    /**
+     * Метод реализующий исполнение класса
+     * @return ответ модели
+     */
     public Pair<Integer, String> execute(String request){
         Pair<Integer, String> response;
         response = commandHandler.execute(request);
         return response;
     }
+    /**
+     * Метод реализующий загрузку данных о группах из XML файла
+     * @return строку - итоги работы метода
+     */
     private String writeList(Storage st, IOHandler ioHandler, IDHandler idHandler){
         int idEl = 1;
         try {
-            XMLValidation validator = new XMLValidation(st, idHandler);
+            ClosedFieldValidator validator = new ClosedFieldValidator(st, idHandler);
             XMLCollection collection = ioHandler.readListFromFile("ProgramFile/Main.xml");
             for(StudyGroup el: collection.getCollection()){
                 validator.StudyGroupIDValidation(el.getId());
@@ -53,6 +66,10 @@ public class EntryBlock implements IModel{
         }
         return "Данные из файла успешно загружены\n";
     }
+    /**
+     * Метод реализующий подготовку модели к работе
+     * @return строку - итоги работы метода
+     */
     public Pair<Integer, String> start(){
         String response = "Добро пожаловать в программу!!!\n";
         Storage st = new Storage();

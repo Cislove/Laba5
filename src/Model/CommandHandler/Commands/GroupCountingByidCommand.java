@@ -3,6 +3,10 @@ package Model.CommandHandler.Commands;
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
 
+/**
+ * Класс реализации команды "group_counting_by_id"
+ * @author Ильнар Рахимов
+ */
 public class GroupCountingByidCommand implements Command{
     private final IStorage storage;
     public GroupCountingByidCommand(IStorage storage){

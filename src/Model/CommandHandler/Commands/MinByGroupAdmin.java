@@ -3,6 +3,10 @@ package Model.CommandHandler.Commands;
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
 
+/**
+ * Класс реализации команды "min_by_group_admin"
+ * @author Ильнар Рахимов
+ */
 public class MinByGroupAdmin implements Command{
     private final IStorage storage;
     public MinByGroupAdmin(IStorage storage){

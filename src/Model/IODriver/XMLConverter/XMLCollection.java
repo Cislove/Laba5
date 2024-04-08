@@ -5,6 +5,10 @@ import Model.Storage.StorageObject.StudyGroup;
 
 import java.util.LinkedList;
 
+/**
+ * Класс описание коллекции для {@link Converter} и {@link Model.IODriver.XMLParser.Parser}. Состоит из главной коллекции программы и метаданным к ней
+ * @author Ильнар Рахимов
+ */
 public class XMLCollection {
     private LinkedList<StudyGroup> collection;
     private baseMetaData mDATA;

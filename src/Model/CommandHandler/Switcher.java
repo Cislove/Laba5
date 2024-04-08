@@ -4,10 +4,15 @@ package Model.CommandHandler;
 import Model.CommandHandler.Commands.ArgumentCommand;
 import Model.CommandHandler.Commands.Command;
 import Model.CommandHandler.Commands.Pair;
+import Model.Storage.StorageObject.StudyGroup;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * Класс обработчик запросов пользователя. Считывает запросы и вызывает исполнение нужных команд
+ * @author Ильнар Рахимов
+ */
 public class Switcher {
     private final HashMap<String, Command> commandMap = new HashMap<>();
     private final ArrayList<String> lastCommands = new ArrayList<>();

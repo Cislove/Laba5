@@ -9,6 +9,10 @@ import Model.Validation.Validator;
 
 import java.util.LinkedList;
 
+/**
+ * Класс реализации команды "update"
+ * @author Ильнар Рахимов
+ */
 public class UpdateCommand implements ArgumentCommand{
     private final IStorage storage;
     private FieldHolder fieldHolder;

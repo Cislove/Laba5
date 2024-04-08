@@ -4,6 +4,10 @@ import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
 import Model.Validation.IDHandler;
 
+/**
+ * Класс реализации команды "remove_by_id"
+ * @author Ильнар Рахимов
+ */
 public class RemoveByIdCommand implements ArgumentCommand{
     private final IStorage storage;
     private final IDHandler idHandler;

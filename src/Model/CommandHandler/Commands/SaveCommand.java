@@ -4,6 +4,10 @@ import Model.IODriver.IOHandler;
 import Model.Storage.Storage;
 import Model.IODriver.XMLConverter.XMLCollection;
 
+/**
+ * Класс реализации команды "save"
+ * @author Ильнар Рахимов
+ */
 public class SaveCommand implements Command{
     Storage storage;
     String nameFile;

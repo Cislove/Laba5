@@ -5,6 +5,10 @@ import Model.Storage.StorageObject.StudyGroup;
 
 import java.util.LinkedList;
 
+/**
+ * Интерфейс взаимодействия с хранилищем {@link Storage}
+ * @author Ильнар Рахимов
+ */
 public interface IStorage {
     int addElement(StudyGroup el);
     int delElement(int id);

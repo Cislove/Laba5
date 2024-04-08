@@ -8,6 +8,10 @@ import Model.IODriver.XMLConverter.XMLCollection;
 
 import java.io.IOException;
 
+/**
+ * Класс обработчик взаимодействий с файлами
+ * @author Ильнар Рахимов
+ */
 public class IOHandler{
     private final Reader reader;
     private final Writter writter;
@@ -17,6 +21,12 @@ public class IOHandler{
         this.reader = reader;
         this.writter = writter;
     }
+    /**
+     * Метод записывающий коллекцию в файл
+     * @param collection коллекция
+     * @param name имя файла
+     * @return строку - итог выполнения метода
+     */
     public String writeListToFile(XMLCollection collection, String name) {
         String response = "Коллекция успешно записана в файл\n";
         String xml = converter.Serialize(collection);
@@ -30,6 +40,11 @@ public class IOHandler{
         return 0;
     }
 
+    /**
+     * Метод читающий коллекцию из файла
+     * @param name имя файла
+     * @return прочитанную коллекцию
+     */
     public XMLCollection readListFromFile(String name) throws IOException {
         String xml = reader.ReadFromFile(name);
         if(xml == null){

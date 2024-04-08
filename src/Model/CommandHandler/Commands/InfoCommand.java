@@ -3,6 +3,10 @@ package Model.CommandHandler.Commands;
 import Model.Storage.IStorage;
 import Model.Storage.ObjectDescription.baseMetaData;
 
+/**
+ * Класс реализации команды "info"
+ * @author Ильнар Рахимов
+ */
 public class InfoCommand implements Command{
     IStorage storage;
     public InfoCommand(IStorage storage){
