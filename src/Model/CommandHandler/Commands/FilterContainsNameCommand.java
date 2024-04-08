@@ -20,4 +20,9 @@ public class FilterContainsNameCommand implements ArgumentCommand{
         }
         return new Pair<>(0, response.toString());
     }
+
+    @Override
+    public void update() {
+
+    }
 }

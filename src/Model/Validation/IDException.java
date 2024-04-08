@@ -1,4 +1,4 @@
-package Model.Validation.ClosedFieldHandler.IDhandler;
+package Model.Validation;
 
 public class IDException extends Exception{
     String message;

@@ -1,16 +1,8 @@
 package Model.Validation;
 
 import Model.Storage.IStorage;
-import Model.Storage.StorageObject.StudyGroup;
-import Model.Validation.ClosedFieldHandler.IDhandler.IDException;
-import Model.Validation.ClosedFieldHandler.IDhandler.IDHandler;
 
-import java.lang.reflect.Field;
 import java.time.LocalDate;
-import java.util.Collections;
-import java.util.Stack;
-
-import static java.util.Collections.reverse;
 
 public class XMLValidation extends Validator{
     IDHandler idHandler;
@@ -23,7 +15,7 @@ public class XMLValidation extends Validator{
             if(id == null){
                 throw new ValidateException("ID должен быть числом\n");
             }
-            idHandler.setId(Integer.valueOf(String.valueOf(id)));
+            idHandler.setId(Integer.parseInt(String.valueOf(id)));
         }
         catch (IDException e){
             throw new ValidateException("Данный ID уже занят\n");

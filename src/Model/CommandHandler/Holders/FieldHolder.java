@@ -47,7 +47,7 @@ public class FieldHolder {
         return readyEl;
     }
 
-    private void finish(){
+    protected void finish(){
         nullFieldFlag = false;
         readyEl = cash;
         cash = new StudyGroup();
@@ -70,7 +70,7 @@ public class FieldHolder {
             try {
                 writeField(parseField(arguments));
             } catch (ValidateException e) {
-                return new Pair<>(1, e.getMessage());
+                return new Pair<>(2, e.getMessage());
             }
         }
         if(checkField()){

@@ -7,10 +7,10 @@ public class HelpCommand implements Command{
     }
     @Override
     public Pair<Integer, String> execute() {
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for(Pair<String, String> i: list.getList()){
-            s += (i.getLeft() + ": " + i.getRight() + "!\n");
+            s.append(i.getLeft()).append(": ").append(i.getRight()).append("!\n");
         }
-        return new Pair<>(0, s);
+        return new Pair<>(0, s.toString());
     }
 }

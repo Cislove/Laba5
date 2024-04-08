@@ -7,4 +7,7 @@ public class Handler {
         rec.print(str);
         return res.consoleIn();
     }
+    public void send(String str){
+        rec.print(str);
+    }
 }

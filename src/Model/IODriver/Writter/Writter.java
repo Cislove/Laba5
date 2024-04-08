@@ -1,8 +1,5 @@
 package Model.IODriver.Writter;
 
-
-import Model.IODriver.Writeable;
-
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -19,15 +16,4 @@ public class Writter{
         }
         return 0;
     }
-//    public int writeToFile(String file){
-//        return writeToFile("Main", file);
-//    }
-
-//    public String getPathToDirectory() {
-//        return pathToDirectory;
-//    }
-//
-//    public void setPathToDirectory(String pathToDirectory) {
-//        this.pathToDirectory = pathToDirectory;
-//    }
 }

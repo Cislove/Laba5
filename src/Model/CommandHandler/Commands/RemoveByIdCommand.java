@@ -2,7 +2,7 @@ package Model.CommandHandler.Commands;
 
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
-import Model.Validation.ClosedFieldHandler.IDhandler.IDHandler;
+import Model.Validation.IDHandler;
 
 public class RemoveByIdCommand implements ArgumentCommand{
     private final IStorage storage;
@@ -13,6 +13,12 @@ public class RemoveByIdCommand implements ArgumentCommand{
         this.idHandler = idHandler;
         id = -1;
     }
+
+    @Override
+    public void update() {
+
+    }
+
     @Override
     public Pair<Integer, String> execute(String arguments){
         Pair<Integer, String> response;

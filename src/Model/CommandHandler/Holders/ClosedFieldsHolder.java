@@ -1,7 +1,7 @@
 package Model.CommandHandler.Holders;
 
 import Model.Storage.StorageObject.StudyGroup;
-import Model.Validation.ClosedFieldHandler.IDhandler.IDHandler;
+import Model.Validation.IDHandler;
 
 public class ClosedFieldsHolder {
     IDHandler idHandler;

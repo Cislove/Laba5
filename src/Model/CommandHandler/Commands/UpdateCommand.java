@@ -3,7 +3,7 @@ package Model.CommandHandler.Commands;
 import Model.CommandHandler.Holders.FieldHolder;
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
-import Model.Validation.ClosedFieldHandler.IDhandler.IDHandler;
+import Model.Validation.IDHandler;
 import Model.Validation.Parser;
 import Model.Validation.Validator;
 
@@ -11,13 +11,13 @@ import java.util.LinkedList;
 
 public class UpdateCommand implements ArgumentCommand{
     private final IStorage storage;
-    private final FieldHolder fieldHolder;
+    private FieldHolder fieldHolder;
     private final IDHandler idHandler;
     private Integer id;
+
     public UpdateCommand(IStorage storage, IDHandler idHandler){
         this.storage = storage;
         fieldHolder = new FieldHolder(new Validator(storage), new Parser());
-        //closedFieldsHolder = new ClosedFieldsHolder(idHandler);
         this.idHandler = idHandler;
         id = -1;
     }
@@ -42,21 +42,21 @@ public class UpdateCommand implements ArgumentCommand{
         if (response.getLeft() == 0) {
             StudyGroup el = fieldHolder.getReadyEl();
             el.setId(Long.valueOf(id));
-            //closedFieldsHolder.setFields(el);
             LinkedList<StudyGroup> collection = storage.getAllElements();
             for(int i = 0; i < collection.size(); i++){
                 if(collection.get(i).getId().equals(Long.valueOf(id))){
-                    StudyGroup oldEl = storage.getElement(i);
-                    el.setId(Long.valueOf(id));
-                    //el.setCreationDate(oldEl.getCreationDate());
+                    el.setCreationDate(collection.get(i).getCreationDate());
                     storage.updElement(i, el);
                 }
             }
-            //storage.updElement(id, el);
             response.setRight("Элемент успешно обновлен\n");
             id = -1;
             return response;
         }
         return response;
+    }
+    @Override
+    public void update() {
+        fieldHolder = new FieldHolder(new Validator(storage), new Parser());
     }
 }

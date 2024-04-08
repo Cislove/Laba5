@@ -20,7 +20,7 @@ public class Switcher {
     public void ArgumentCommandsRegister(String commandName, ArgumentCommand command){
         argumentCommandMap.put(commandName, command);
     }
-    public String execute(String request) {
+    public Pair<Integer, String> execute(String request) {
         if(operationMode == 0){
             String command;
             String arguments;
@@ -47,7 +47,7 @@ public class Switcher {
                     return executor(commandMap.get(command));
                 }
                 else{
-                    return "К сожалению такой команды не существует(\n";
+                    return new Pair<>(2, "К сожалению такой команды не существует(\n");
                 }
             }
         }
@@ -55,14 +55,28 @@ public class Switcher {
             return executor(argumentCommandMap.get(lastCommands.get(lastCommands.size() - 1)), request);
         }
     }
-    private String executor(Command command){
+    private Pair<Integer, String> executor(Command command){
         Pair<Integer, String> res = command.execute();
-        operationMode = res.getLeft();
-        return res.getRight();
+        switch (res.getLeft()){
+            case 2, 1 -> operationMode = 1;
+            default -> operationMode = 0;
+        }
+        return res;
     }
-    private String executor(ArgumentCommand command, String arguments){
+    private Pair<Integer, String> executor(ArgumentCommand command, String arguments){
         Pair<Integer, String> res = command.execute(arguments);
-        operationMode = res.getLeft();
-        return res.getRight();
+        switch (res.getLeft()){
+            case 2, 1 -> operationMode = 1;
+            default -> operationMode = 0;
+        }
+        return res;
+    }
+
+    public void setOperationMode(int operationMode) {
+        if(operationMode == 1){
+            argumentCommandMap.get(lastCommands.get(lastCommands.size() - 1)).update();
+        }
+        this.operationMode = operationMode;
+        //argumentCommandMap.get(lastCommands.get(lastCommands.size() - 1)).update();
     }
 }

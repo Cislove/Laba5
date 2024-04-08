@@ -1,9 +1,6 @@
 package Model.CommandHandler.Commands;
 
 import Model.Storage.IStorage;
-import Model.Storage.StorageObject.StudyGroup;
-
-import java.util.LinkedList;
 
 public class HeadCommand implements Command{
     IStorage storage;

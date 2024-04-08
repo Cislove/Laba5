@@ -8,11 +8,10 @@ import java.util.LinkedList;
 public class Storage implements IStorage {
     private LinkedList<StudyGroup> collection;
     private baseMetaData mDATA;
-    private HashMap<String, Boolean> passportIdStorage;
+    private final HashMap<String, Boolean> passportIdStorage;
     public Storage(){
         collection = new LinkedList<>();
         mDATA = new baseMetaData("LinkedList");
-        //collection.add(new StudyGroup());
         passportIdStorage = new HashMap<>();
     }
 
@@ -41,12 +40,10 @@ public class Storage implements IStorage {
         return 0;
     }
     public StudyGroup getElement(int id){
-        StudyGroup el = collection.get(id);
-        return el;
+        return collection.get(id);
     }
     public LinkedList <StudyGroup> getAllElements(){
-        LinkedList <StudyGroup> coll = collection;
-        return coll;
+        return collection;
     }
     public int clear(){
         collection.clear();

@@ -3,10 +3,8 @@ package Model.Validation;
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.FormOfEducation;
 import Model.Storage.StorageObject.Semester;
-import Model.Storage.StorageObject.StudyGroup;
 
 import java.time.LocalDate;
-import java.util.regex.Pattern;
 
 public class Validator {
     IStorage storage;

@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlText;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
@@ -12,33 +11,25 @@ import java.time.LocalDate;
 
 public class StudyGroup implements Comparable<StudyGroup>{
     @closedField
-    //@JsonInclude(JsonInclude.Include.NON_NULL)
     private Long id; //Поле не может быть null, Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
-    //@JsonInclude(JsonInclude.Include.NON_NULL)
     private String name; //Поле не может быть null, Строка не может быть пустой
     @fieldWithCompoundInput
-    //@JsonInclude(JsonInclude.Include.NON_NULL)
     private Coordinates coordinates; //Поле не может быть null
     @closedField
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd.MM.yyyy")
     @JsonSerialize(using = LocalDateSerializer.class)
     @JsonDeserialize(using = LocalDateDeserializer.class)
-    //@JsonInclude(JsonInclude.Include.NON_NULL)
-    //@JsonInclude(JsonInclude.Include.NON_EMPTY)
     private java.time.LocalDate creationDate; //Поле не может быть null, Значение этого поля должно генерироваться автоматически
-    //@JsonInclude(JsonInclude.Include.NON_NULL)
     private Long studentsCount; //Значение поля должно быть больше 0
     @enumType
     @mayBeNull
-    //@JsonInclude(JsonInclude.Include.NON_NULL)
     private FormOfEducation formOfEducation; //Поле может быть null
     @enumType
     @mayBeNull
-    //@JsonInclude(JsonInclude.Include.NON_NULL)
     private Semester semesterEnum; //Поле может быть null
     @fieldWithCompoundInput
     @mayBeNull
-    //@JsonInclude(JsonInclude.Include.NON_NULL)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Person groupAdmin; //Поле может быть null
     public Long getId() {
         return id;

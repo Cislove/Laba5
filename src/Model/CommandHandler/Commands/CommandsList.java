@@ -3,7 +3,7 @@ package Model.CommandHandler.Commands;
 import java.util.ArrayList;
 
 public class CommandsList {
-    private ArrayList<Pair<String, String>> list;
+    private final ArrayList<Pair<String, String>> list;
     public CommandsList(){
         list = new ArrayList<>();
     }
@@ -12,10 +12,7 @@ public class CommandsList {
         return list;
     }
 
-    public void setList(ArrayList<Pair<String, String>> list) {
-        this.list = list;
-    }
     public void register(String command, String description){
-        list.add(new Pair<String, String>(command, description));
+        list.add(new Pair<>(command, description));
     }
 }

@@ -1,7 +1,9 @@
 package Model;
 
+import Model.CommandHandler.Commands.Pair;
+
 public interface IModel {
-    public String execute(String request);
-    public String start();
+    public Pair<Integer, String> execute(String request);
+    public Pair<Integer, String> start();
 }
 

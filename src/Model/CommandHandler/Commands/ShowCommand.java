@@ -3,7 +3,6 @@ package Model.CommandHandler.Commands;
 import Model.Storage.IStorage;
 import Model.Storage.StorageObject.StudyGroup;
 
-import java.util.LinkedList;
 
 public class ShowCommand implements Command{
     IStorage storage;
@@ -12,11 +11,13 @@ public class ShowCommand implements Command{
     }
     @Override
     public Pair<Integer, String> execute() {
-        String response = "";
-        //LinkedList<StudyGroup> collection = storage.getAllElements();
-        for(StudyGroup coll: storage.getAllElements()){
-            response += (coll.toString());
+        StringBuilder response = new StringBuilder();
+        if(storage.getAllElements().isEmpty()){
+            response.append("В коллекции отсутствуют элементы\n");
         }
-        return new Pair<>(0, response);
+        for(StudyGroup coll: storage.getAllElements()){
+            response.append(coll.toString());
+        }
+        return new Pair<>(0, response.toString());
     }
 }

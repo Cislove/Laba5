@@ -1,9 +1,8 @@
 package Model.CommandHandler.Commands;
 
 import Model.IODriver.IOHandler;
-import Model.Storage.IStorage;
 import Model.Storage.Storage;
-import Model.XMLCollection;
+import Model.IODriver.XMLConverter.XMLCollection;
 
 public class SaveCommand implements Command{
     Storage storage;

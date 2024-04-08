@@ -1,9 +1,9 @@
-package Model.Validation.ClosedFieldHandler.IDhandler;
+package Model.Validation;
 
 import java.util.LinkedList;
 
 public class IDHandler {
-    private LinkedList <Integer> freeId;
+    private final LinkedList <Integer> freeId;
     private int countBusyId;
     public IDHandler(){
         freeId = new LinkedList<>();
@@ -23,7 +23,7 @@ public class IDHandler {
             freeId.add(i);
         }
     }
-    public void setId(int id) throws IDException{
+    public void setId(int id) throws IDException {
         //System.out.println(freeId);
         while(id >= (countBusyId + freeId.size())){
             expandListId();
