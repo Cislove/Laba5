@@ -62,6 +62,7 @@ public class IOHandler{
     public String readFile(String name) throws IOException {
         String response;
         response = reader.ReadFromFile(name);
+        //System.out.println(response);
         if(response == null){
             throw new IOException("Ошибка чтения из файла, проверьте путь до него и правда доступа\n");
         }

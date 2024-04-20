@@ -98,10 +98,10 @@ public class EntryBlock implements IModel{
         Command helpCommand = new HelpCommand(list);
         Command infoCommand = new InfoCommand(st);
         Command showCommand = new ShowCommand(st);
-        Command clearCommand = new ClearCommand(st);
+        Command clearCommand = new ClearCommand(st, idHandler);
         Command saveCommand = new SaveCommand(st, ioHandler);
         Command exitCommand = new ExitCommand();
-        Command removeFirstCommand = new removeFirstCommand(st);
+        Command removeFirstCommand = new removeFirstCommand(st, idHandler);
         Command headCommand = new HeadCommand(st);
         Command minByGroupAdmin = new MinByGroupAdmin(st);
         Command groupCountingById = new GroupCountingByidCommand(st);

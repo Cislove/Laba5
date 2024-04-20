@@ -12,7 +12,7 @@ import java.util.LinkedList;
 public class Storage implements IStorage {
     private LinkedList<StudyGroup> collection;
     private baseMetaData mDATA;
-    private final HashMap<String, Boolean> passportIdStorage;
+    private HashMap<String, Boolean> passportIdStorage;
     public Storage(){
         collection = new LinkedList<>();
         mDATA = new baseMetaData("LinkedList");
@@ -50,6 +50,7 @@ public class Storage implements IStorage {
     }
     public int clear(){
         collection.clear();
+        passportIdStorage = new HashMap<>();
         return 0;
     }
     public baseMetaData getmData(){

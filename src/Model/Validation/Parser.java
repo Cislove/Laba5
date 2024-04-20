@@ -27,11 +27,13 @@ public class Parser {
      * @return studentsCount в установленном формате
      */
     public Long StudyGroupStudentsCountParser(String studentsCount) throws ParseException{
-        try{
-            return Long.parseLong(studentsCount);
+        try {
+            Long res;
+            res = Long.parseLong(studentsCount);
+            return res;
         }
         catch (NumberFormatException e){
-            throw new ParseException("Количество людей в группе должно быть числом!\n");
+            throw new ParseException("\"Значение количества людей должно быть целым числом в диапазоне (0, 9223372036854775807)\n");
         }
     }
     /**

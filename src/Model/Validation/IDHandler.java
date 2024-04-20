@@ -66,4 +66,8 @@ public class IDHandler {
         }
         return closeId();
     }
+    public void openID(int id){
+        countBusyId--;
+        freeId.add(id);
+    }
 }

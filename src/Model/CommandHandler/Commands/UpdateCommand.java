@@ -30,7 +30,7 @@ public class UpdateCommand implements ArgumentCommand{
         Pair<Integer, String> response;
         if(id == -1){
             try {
-                System.out.println(arguments);
+                //System.out.println(arguments);
                 id = Integer.parseInt(arguments);
                 if (id < 1 || !idHandler.checkId(id)) {
                     id = -1;

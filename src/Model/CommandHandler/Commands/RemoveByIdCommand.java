@@ -26,7 +26,7 @@ public class RemoveByIdCommand implements ArgumentCommand{
     @Override
     public Pair<Integer, String> execute(String arguments){
         Pair<Integer, String> response;
-        System.out.println(arguments);
+        //System.out.println(arguments);
         try {
             id = Integer.parseInt(arguments);
             if (id < 1 || !idHandler.checkId(id)) {
@@ -37,7 +37,8 @@ public class RemoveByIdCommand implements ArgumentCommand{
             for(StudyGroup el: storage.getAllElements()){
                 if(el.getId().equals(Long.valueOf(id))){
                     storage.delElement(i);
-                    System.out.println(i);
+                    idHandler.openID(id);
+                    //System.out.println(i);
                 }
                 i++;
             }

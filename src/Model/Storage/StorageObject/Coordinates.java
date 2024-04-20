@@ -31,8 +31,8 @@ public class Coordinates {
     @Override
     public String toString() {
         String response = "\n";
-        response += ("      " + "по оси X " + xCord.toString() + "\n");
-        response += ("      " + "по оси Y " + yCord.toString());
+        response += ("\t\t" + "по оси X " + xCord.toString() + "\n");
+        response += ("\t\t" + "по оси Y " + yCord.toString());
         return response;
     }
 }
